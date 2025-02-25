@@ -6,7 +6,7 @@ class BinarySearch:
         if array is not None:
             self.array = array
 
-        left, right = 0, len(self.array)
+        left, right = 0, len(self.array) - 1
 
         while left != right:
             mid = left + (right - left) // 2
@@ -36,11 +36,13 @@ class BinarySearch:
 
     def lower_bound(self, target: int, array: list[int] | None = None) -> int:
         """Lower bound of target value refers to the smallest index at which it can be inserted without disturbing the array's order."""
-        pass
+        # TODO: implement the method
+        raise NotImplementedError
 
     def upper_bound(self, target: int, array: list[int] | None = None) -> int:
         """Upper bound of target value refers to the largest index at which it can be inserted without disturbing the array's order."""
-        pass
+        # TODO: implement the method
+        raise NotImplementedError
 
 
 def test():
@@ -54,8 +56,12 @@ def test():
     for i in range(10):
         target = random.randint(-1000, 1000)
 
-        print(f"Target value: {target} | index: {binary_search.index_of(target)}")
-        print(f"Target value: {array[i]} | index: {binary_search.index_of(array[i])}")
+        assert (
+            binary_search.index_of(target) == array.index(target)
+            if target in array
+            else binary_search.index_of(target) == len(array)
+        )
+        assert binary_search.index_of(array[i]) == i + 1
 
 
 if __name__ == "__main__":
