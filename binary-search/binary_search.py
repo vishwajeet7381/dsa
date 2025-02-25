@@ -35,11 +35,28 @@ class BinarySearch:
         """
 
     def lower_bound(self, target: int, array: list[int] | None = None) -> int:
-        """Lower bound of target value refers to the smallest index at which it can be inserted without disturbing the array's order.
-        """
+        """Lower bound of target value refers to the smallest index at which it can be inserted without disturbing the array's order."""
         pass
 
     def upper_bound(self, target: int, array: list[int] | None = None) -> int:
-        """Upper bound of target value refers to the largest index at which it can be inserted without disturbing the array's order.
-        """
+        """Upper bound of target value refers to the largest index at which it can be inserted without disturbing the array's order."""
         pass
+
+
+def test():
+    import random
+
+    array = sorted([random.randint(-1000, 1000) for _ in range(10)])
+    print(array)
+
+    binary_search = BinarySearch(array)
+
+    for i in range(10):
+        target = random.randint(-1000, 1000)
+
+        print(f"Target value: {target} | index: {binary_search.index_of(target)}")
+        print(f"Target value: {array[i]} | index: {binary_search.index_of(array[i])}")
+
+
+if __name__ == "__main__":
+    test()
