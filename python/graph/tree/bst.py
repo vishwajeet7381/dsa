@@ -30,9 +30,65 @@ class BST:
         return keys
 
     def traverse_preorder(self) -> list[int]:
-        return NotImplementedError
+        keys: list[int] = []
+
+        def _traverse_preorder(root: Node):
+            if root is None:
+                return
+            
+            keys.append(root.value)
+            _traverse_preorder(root.left)
+            _traverse_preorder(root.right)
+
+        _traverse_preorder(self.root)
+
+        return keys
 
     def traverse_postorder(self) -> list[int]:
+        keys: list[int] = []
+
+        def _traverse_postorder(root: Node):
+            if root is None:
+                return
+            
+            _traverse_postorder(root.left)
+            _traverse_postorder(root.right)
+            keys.append(root.value)
+
+        _traverse_postorder(self.root)
+
+        return keys
+    
+    def minimum(self) -> int | None:
+        if self.root is None:
+            return None
+        
+        def _minimum(root) -> int:
+            if root.left is None:
+                return root.value
+            
+            return _minimum(root.left)
+        
+        return _minimum(self.root)
+    
+    def maximum(self) -> int | None:
+        if self.root is None:
+            return None
+        
+        def _maximum(root):
+            if root.right is None:
+                return root.value
+            
+            return _maximum(root.right)
+        
+        return _maximum(self.root)
+    
+    def predecessor(self, key: int) -> int | None:
+        """Returns key of next smaller element to given key or None if given key is the smallest."""
+        return NotImplementedError
+    
+    def successor(self, key: int) -> int | None:
+        """Returns key of next larger element to given key or None if given key is the largest."""
         return NotImplementedError
 
 
