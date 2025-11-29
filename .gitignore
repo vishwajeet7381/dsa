@@ -29,3 +29,6 @@ practice*
 # Pre-commits
 .pre-commit-config.yaml
 trufflehog/
+
+# Java compiled files
+java/**/*.class
