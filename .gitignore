@@ -25,3 +25,7 @@ bin/
 
 # Practice files
 practice*
+
+# Pre-commits
+.pre-commit-config.yaml
+trufflehog/
