@@ -3,8 +3,8 @@ from collections import deque
 
 class BFS:
     def __init__(self, graph: list[list[int]]):
-        self._num_vertics: int = len(graph)
         self._graph: list[list[int]] = graph
+        self._num_vertics: int = len(self._graph)
         self._queue: deque[int] = deque()
         self._discovered: list[bool] = [False] * self._num_vertics
 
